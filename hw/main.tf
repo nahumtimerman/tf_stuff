@@ -3,6 +3,6 @@ output "plox" {
 }
 
 resource "null_resource" "cluster" {
-count=20
+count=r
 }
 
