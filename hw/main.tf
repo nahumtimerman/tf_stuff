@@ -1,3 +1,3 @@
 output "plox" {
-  value = "plox! plox!"
+  value = "plox! plox! plox!"
 }
