@@ -10,3 +10,8 @@ count=8
 resource "null_resource" "bluster" {
 count=8
 }
+
+
+resource "null_resource" "chuster" {
+count=8
+}
