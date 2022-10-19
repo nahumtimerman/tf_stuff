@@ -4,6 +4,10 @@ description: Auto generated blueprint for terraform module hw
 inputs:
   host_name:
     type: execution-host
+    default: eks
+  branch:
+    type: string
+    default: neo
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   plox:
@@ -13,8 +17,8 @@ grains:
     kind: terraform
     spec:
       source:
-        store: tf_stuff
-        path: hw
+        path: github.com/nahumtimerman/tf_stuff:{{ inputs.branch }}//hw
+        # path: github.com/qualinext/test-spec2-public.git//terraform/rds
       host:
       # Execution Host - the platform where the asset executable will run.
       # For example, a Kubernetes cluster can be used as an execution host.
