@@ -17,7 +17,7 @@ grains:
     kind: terraform
     spec:
       source:
-        path: github.com/nahumtimerman/tf_stuff:{{ inputs.branch }}//hw
+        path: github.com/nahumtimerman/tf_stuff//hw
         # path: github.com/qualinext/test-spec2-public.git//terraform/rds
       host:
       # Execution Host - the platform where the asset executable will run.
