@@ -1,0 +1,47 @@
+spec_version: 2
+description: Auto generated blueprint for helm chart test
+# blueprint inputs can be provided by the user, API or CI plugin when creating an environment from this blueprint.
+inputs:
+  replicaCount:
+    type: string
+    default: 1
+  nameOverride:
+    type: string
+    default: blah
+  fullnameOverride:
+    type: string
+    default: blah
+  namespace:
+    type: string
+    default: blah
+  host_name:
+    type: execution-host
+    default: eks
+  branch:
+    type: string
+    default: neo
+grains:
+  test:
+    kind: helm
+    spec:
+      source:
+        path: http://github.com/nahumtimerman/tf_stuff:{{ inputs.branch}}//test
+      namespace: '{{ .inputs.namespace }}'
+      host:
+      # Execution Host - the platform where the asset executable will run.
+      # For example, a Kubernetes cluster can be used as an execution host.
+        name: '{{ .inputs.host_name }}'
+        # A service account annotated with a role ARN with permissions to run the asset
+        # service-account: <service-account-name>
+      inputs:
+      - replicaCount: '{{ .inputs.replicaCount }}'
+      - nameOverride: '{{ .inputs.nameOverride }}'
+      - fullnameOverride: '{{ .inputs.fullnameOverride }}'
+      - namespace: '{{ .inputs.namespace }}'
+      # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
+      # env-vars:
+      # - VAR_NAME: var value
+      env-vars: []
+      # Helm commands to run before installing the chart
+      commands:
+      - dep up test
