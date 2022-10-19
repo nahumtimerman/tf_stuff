@@ -25,7 +25,7 @@ grains:
     kind: helm
     spec:
       source:
-        path: http://github.com/nahumtimerman/tf_stuff:{{ inputs.branch}}//test
+        path: http://github.com/nahumtimerman/tf_stuff//testNobranch
       namespace: '{{ .inputs.namespace }}'
       host:
       # Execution Host - the platform where the asset executable will run.
